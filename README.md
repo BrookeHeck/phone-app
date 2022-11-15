@@ -3,6 +3,9 @@
 ## Overview
 This is my first app made with React Native. It's a simple game where you can move the player around the screen and try to get as many of the black targets as possible in one minute. The score increments every time a target is hit and it is removed from the screen. I decided to do this game because I wanted to try out the accelerometer sensor, which is not something that I have ever done making web applications. When the game is finished, you will be able to text your score to someone in your contacts. This feature is in progress.
 
+<br/>
+<img src='lab41.png' width='100%' height='auto' >
+
 ## Getting Started
 
 ### npm start
