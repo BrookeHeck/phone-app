@@ -1,21 +1,20 @@
 import { View, Text, StyleSheet, Button } from "react-native";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import ContactsPrompt from "./ContactsPrompt";
 
 const Scoreboard = () => {
-  const dispatch = useDispatch();
   const score = useSelector(state => state.coordinates.score);
 
-  const startNewGame = () => {
-    dispatch({type: 'start_game'});
-  }
-
   return (
-    <View>
-      <Text>You scored {score} points</Text>
-      <Button 
-        title='Send Your Score'
-      />
-    </View>
+    <>
+      <View>
+        <Text>You scored {score} points</Text>
+        <Button
+          title='Send Your Score'
+        />
+      </View>
+      <ContactsPrompt />
+    </>
   )
 }
 
