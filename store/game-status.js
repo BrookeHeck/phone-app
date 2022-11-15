@@ -10,7 +10,9 @@ const reducer = (state = initialState, action) => {
       state = { ...state, gameInProgress: true };
       return state;
     case 'decrement_timer':
+      console.log(action.payload);
       state = { ...state, gameTimer: action.payload }
+      console.log(state);
     default: return state;
   }
 }

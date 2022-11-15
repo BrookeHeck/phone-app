@@ -14,10 +14,8 @@ const GameBoard = () => {
   const score = useSelector(state => state.coordinates.score);
 
   const decrementGameTimer = () => {
-    console.log(gameTimer);
-    const payload = gameTimer - 4;
-    console.log(payload);
-    dispatch({type: 'decrement_timer', payload: payload});
+    const newTime = gameTimer - 4;
+    dispatch({type: 'decrement_timer', payload: newTime});
   }
 
   const moveTargets = () => {
