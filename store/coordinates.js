@@ -57,6 +57,9 @@ const reducer = (state=initialState, action) => {
       const newTargets = createTargets();
       state = {...state, targets: newTargets};
       return state;
+    case 'reset':
+      state = initialState;
+      return state;
     default: return state;
   }
 }

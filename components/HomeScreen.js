@@ -5,6 +5,7 @@ const HomeScreen = () => {
   const dispatch = useDispatch();
 
   const startGame = () => {
+    dispatch({type: 'reset'});
     dispatch({ type: 'start_game' });
   }
 
