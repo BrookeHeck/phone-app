@@ -1,7 +1,6 @@
 const initialState = {
   gameInProgress: false,
   gameTimer: 60,
-  score: 0,
 }
 
 

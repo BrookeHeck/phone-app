@@ -39,10 +39,6 @@ const reducer = (state=initialState, action) => {
       const newTargets = createTargets();
       state = {...state, targets: newTargets};
       return state;
-    case 'add_target':
-      const newTarget = createOneTarget();
-      state = {...state, targets: [...state.targets, newTarget]};
-      return state;
     default: return state;
   }
 }
