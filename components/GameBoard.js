@@ -10,12 +10,11 @@ const GameBoard = () => {
   const dispatch = useDispatch();
   const gameInProgress = useSelector(state => state.gameStatus.gameInProgress);
   const targetCoords = useSelector(state => state.coordinates.targets);
-  const gameTimer = useSelector(state => state.gameStatus.gameTimer);
   const score = useSelector(state => state.coordinates.score);
+  const gameTimer = useSelector(state => state.gameStatus.gameTimer);
 
   const decrementGameTimer = () => {
-    const newTime = gameTimer - 4;
-    dispatch({type: 'decrement_timer', payload: newTime});
+    dispatch({type: 'decrement_timer'});
   }
 
   const moveTargets = () => {
@@ -23,12 +22,14 @@ const GameBoard = () => {
   }
 
   const startInterval = () => {
+    let timer = 60;
     const id = setInterval(() => {
-      if(!gameInProgress || gameTimer <= 0) {
+      if(timer <= 0) {
         clearInterval(id);
+        dispatch({type: 'end_game'});
       }
       else {
-        console.log(gameTimer);
+        timer -= 4;
         decrementGameTimer();
         moveTargets();
       }

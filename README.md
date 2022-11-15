@@ -6,7 +6,7 @@ This is my first app made with React Native. It's a simple game where you can mo
 ## Getting Started
 
 ### npm start
-This command starts the metro bundler. From here, you have a couple different choices of where to run the app. The QR code will allow you to open the app using Expo Go. Other choices are to press a to open up an Android virtual machine using Android Studio. Pressing i will open up the app on a virtual machine using Xcode.
+This command starts the metro bundler. From here, you have a couple different choices of where to run the app. The QR code will allow you to open the app using Expo Go. Other choices are to press 'a' to open up an Android virtual machine using Android Studio. Pressing 'i' will open up the app on a virtual machine using Xcode.
 
 ### npm run dev
 The dev command will create a tunnel that helps connect your Expo Go to the server running the app.

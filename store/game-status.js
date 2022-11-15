@@ -3,6 +3,10 @@ const initialState = {
   gameTimer: 60,
 }
 
+const decrementTimer = (gameTimer) => {
+  return gameTimer -= 4;
+}
+
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -10,8 +14,8 @@ const reducer = (state = initialState, action) => {
       state = { ...state, gameInProgress: true };
       return state;
     case 'decrement_timer':
-      console.log(action.payload);
-      state = { ...state, gameTimer: action.payload }
+      const newTime = decrementTimer(state.gameTimer);
+      state = { ...state, gameTimer: newTime }
       console.log(state);
     default: return state;
   }
