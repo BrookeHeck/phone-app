@@ -49,23 +49,19 @@ const GameBoard = () => {
 
   return (
     <SafeAreaView>
-      <When condition={!gameInProgress}>
-        <HomeScreen />
-      </When>
+      <When condition={gameComplete} ><Scoreboard /></When>
+      
+      <When condition={!gameInProgress}><HomeScreen /></When>
 
       <When condition={gameInProgress}>
-        <View><Text>{score}</Text></View>
-        <View><Text>{gameTimer}</Text></View>
+        <View><Text>Score: {score} targets</Text></View>
+        <View><Text>Time Left: {gameTimer} seconds</Text></View>
         <Player />
         {
           targetCoords.map((target, idx) => (
             <Target coord={target} key={idx} />
           ))
         }
-      </When>
-
-      <When condition={gameComplete} >
-        <Scoreboard />
       </When>
     </SafeAreaView>
   )

@@ -33,8 +33,8 @@ const createTargets = () => {
 const checkForTargets = (playerCoord, targetArr, score) => {
   let indexToRemove = -1;
   targetArr.forEach((target, idx) => {
-    if(playerCoord.x < target.x + 15 && playerCoord.x > target.x - 15) {
-      if(playerCoord.y < target.y + 15 && playerCoord.y > target.y - 15) {
+    if(playerCoord.x < target.x + 20 && playerCoord.x > target.x - 20) {
+      if(playerCoord.y < target.y + 20 && playerCoord.y > target.y - 20) {
         score++;
         indexToRemove = idx;
       }

@@ -1,4 +1,4 @@
-import { StyleSheet, Button, View } from 'react-native';
+import { StyleSheet, Button, View, Text } from 'react-native';
 import { useDispatch } from 'react-redux';
 
 const HomeScreen = () => {
@@ -16,6 +16,9 @@ const HomeScreen = () => {
         title='Start Game'
         styles={styles.buttonStyles}
       />
+      <Text>
+        Move your phone to move the player. Try to hit all the targets to score points.
+      </Text>
     </View>
   )
 }
