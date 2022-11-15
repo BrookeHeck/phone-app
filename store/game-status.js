@@ -4,11 +4,13 @@ const initialState = {
 }
 
 
-const reducer = (state=initialState, action) => {
-  switch(action.type) {
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
     case 'start_game':
-      state = {...state, gameInProgress: true};
+      state = { ...state, gameInProgress: true };
       return state;
+    case 'decrement_timer':
+      state = { ...state, gameTimer: action.payload }
     default: return state;
   }
 }

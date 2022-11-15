@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { When } from "react-if";
-import { SafeAreaView } from "react-native";
+import { SafeAreaView, View, Text } from "react-native";
 import Player from "./Player";
 import HomeScreen from "./HomeScreen";
 import Target from "./Target";
@@ -10,26 +10,35 @@ const GameBoard = () => {
   const dispatch = useDispatch();
   const gameInProgress = useSelector(state => state.gameStatus.gameInProgress);
   const targetCoords = useSelector(state => state.coordinates.targets);
+  const gameTimer = useSelector(state => state.gameStatus.gameTimer);
+  const score = useSelector(state => state.coordinates.score);
 
   const decrementGameTimer = () => {
-
+    console.log(gameTimer);
+    const payload = gameTimer - 4;
+    console.log(payload);
+    dispatch({type: 'decrement_timer', payload: payload});
   }
 
-  const createTargets = () => {
+  const moveTargets = () => {
     dispatch({type: 'create_targets'});
   }
 
   const startInterval = () => {
     const id = setInterval(() => {
-      if(!gameInProgress) clearInterval(id);
+      if(!gameInProgress || gameTimer <= 0) {
+        clearInterval(id);
+      }
       else {
-        createTargets();
+        console.log(gameTimer);
+        decrementGameTimer();
+        moveTargets();
       }
     }, 4000)
   }
 
   useEffect(() => {
-    startInterval();
+    if(gameTimer >= 60) startInterval();
   }, [gameInProgress]);
 
   return (
@@ -39,6 +48,8 @@ const GameBoard = () => {
       </When>
 
       <When condition={gameInProgress}>
+        <View><Text>{score}</Text></View>
+        <View><Text>{gameTimer}</Text></View>
         <Player />
         {
           targetCoords.map((target, idx) => (

@@ -1,6 +1,7 @@
 const initialState = {
   player: { x: 0, y: 0 },
   targets: [],
+  score: 0,
 }
 
 const checkCoordOutOfBounds = (coord) => {
@@ -29,11 +30,28 @@ const createTargets = () => {
   return targetArr;
 }
 
+const checkForTargets = (playerCoord, targetArr, score) => {
+  let indexToRemove = -1;
+  targetArr.forEach((target, idx) => {
+    if(playerCoord.x < target.x + 15 && playerCoord.x > target.x - 15) {
+      if(playerCoord.y < target.y + 15 && playerCoord.y > target.y - 15) {
+        score++;
+        indexToRemove = idx;
+      }
+    }
+  });
+  if(indexToRemove !== -1) {
+    const newTargetArr = targetArr.filter((target, idx) => idx !== indexToRemove);
+    return {score: score, targets: newTargetArr};
+  } else return {score, targets: targetArr};
+}
+
 const reducer = (state=initialState, action) => {
   switch(action.type) {
     case 'move_player':
       const newCoord = setCoords(action.payload);
-      state = {...state, player: newCoord };
+      const updates = checkForTargets(state.player, state.targets, state.score);
+      state = {player: newCoord, score: updates.score, targets: updates.targets};
       return state;
     case 'create_targets':
       const newTargets = createTargets();
