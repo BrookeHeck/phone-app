@@ -1,10 +1,14 @@
 import { SafeAreaView } from 'react-native';
-import Test from './components/Test';
+import Player from './components/Player';
+import store from './store';
+import { Provider } from 'react-redux';
 
 export default function App() {
   return (
     <SafeAreaView>
-      <Test />
+      <Provider store={store}>
+        <Player />
+      </Provider>
     </SafeAreaView>
   );
 }
