@@ -15,8 +15,18 @@ const setCoords = ({ x, y }) => {
   return { x, y };
 }
 
-const createTargets = () => {
+const createOneTarget = () => {
+  const x = Math.floor(Math.random() * 550);
+  const y = Math.floor(Math.random() * 550);
+  return {x, y};
+}
 
+const createTargets = () => {
+  const targetArr = [];
+  for(let i = 0; i < 5; i++) {
+    targetArr.push(createOneTarget());
+  }
+  return targetArr;
 }
 
 const reducer = (state=initialState, action) => {
@@ -24,6 +34,14 @@ const reducer = (state=initialState, action) => {
     case 'move_player':
       const newCoord = setCoords(action.payload);
       state = {...state, player: newCoord };
+      return state;
+    case 'create_targets':
+      const newTargets = createTargets();
+      state = {...state, targets: newTargets};
+      return state;
+    case 'add_target':
+      const newTarget = createOneTarget();
+      state = {...state, targets: [...state.targets, newTarget]};
       return state;
     default: return state;
   }
