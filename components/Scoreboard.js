@@ -1,6 +1,5 @@
-import { View, Text, StyleSheet, Button } from "react-native";
+import { View, Text, Button } from "react-native";
 import { useSelector } from "react-redux";
-import ContactsPrompt from "./ContactsPrompt";
 
 const Scoreboard = () => {
   const score = useSelector(state => state.coordinates.score);
@@ -13,7 +12,6 @@ const Scoreboard = () => {
           title='Send Your Score'
         />
       </View>
-      <ContactsPrompt />
     </>
   )
 }

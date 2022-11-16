@@ -4,7 +4,7 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'get_contacts': 
+    case 'get_contacts':
       state = { contacts: action.payload }
       return state;
     default: return state;

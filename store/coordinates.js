@@ -1,24 +1,24 @@
 const initialState = {
   player: { x: 0, y: 0 },
-  targets: [],
+  targets: [{x: 10, y: 400}, {x: 300, y: 10}, {x: 50, y: 50}, {x: 300, y: 400}, {x: 150, y: 200}],
   score: 0,
 }
 
 const checkCoordOutOfBounds = (coord) => {
-  if (coord > 550) return 550;
+  if (coord > 650) return 650;
   if (coord < 0) return 0;
   else return coord;
 }
 
 const setCoords = ({ x, y }) => {
-  y = checkCoordOutOfBounds(Math.ceil(y * -650));
+  y = checkCoordOutOfBounds(Math.ceil(y * -750));
   x = checkCoordOutOfBounds(Math.ceil(x * 500));
   return { x, y };
 }
 
 const createOneTarget = () => {
-  const x = Math.floor(Math.random() * 550);
-  const y = Math.floor(Math.random() * 550);
+  const x = Math.floor((Math.random() * 300) + 10);
+  const y = Math.floor((Math.random() * 600) + 10);
   return {x, y};
 }
 
