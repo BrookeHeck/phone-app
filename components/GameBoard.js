@@ -6,6 +6,7 @@ import Player from "./Player";
 import HomeScreen from "./HomeScreen";
 import Target from "./Target";
 import Scoreboard from "./Scoreboard";
+import ContactsPrompt from './ContactsPrompt';
 
 const GameBoard = () => {
   const dispatch = useDispatch();
@@ -27,7 +28,7 @@ const GameBoard = () => {
   }
 
   const startInterval = () => {
-    let timer = 60;
+    let timer = 56;
     const id = setInterval(() => {
       if(timer <= 0) {
         clearInterval(id);
@@ -49,9 +50,10 @@ const GameBoard = () => {
 
   return (
     <SafeAreaView>
-      <When condition={gameComplete} ><Scoreboard /></When>
+      <ContactsPrompt />
       
       <When condition={!gameInProgress}><HomeScreen /></When>
+      <When condition={gameComplete} ><Scoreboard /></When>
 
       <When condition={gameInProgress}>
         <View><Text>Score: {score} targets</Text></View>

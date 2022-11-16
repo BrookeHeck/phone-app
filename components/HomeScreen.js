@@ -13,7 +13,7 @@ const HomeScreen = () => {
     <View>
       <Button
         onPress={startGame}
-        title='Start Game'
+        title='Start New Game'
         styles={styles.buttonStyles}
       />
       <Text>
