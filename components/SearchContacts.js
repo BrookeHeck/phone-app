@@ -12,14 +12,13 @@ const SearchContacts = () => {
   const changeList = (searchStr) => {
     const filteredList = contacts.filter(contact => {
       try {
-        return contact.name.includes(searchStr);
+        return contact.name.toLowerCase().includes(searchStr.toLowerCase());
       } catch (e) { console.log(e) }
     });
     setContactList(filteredList);
   }
 
   const changeSelectedContact = (contact) => {
-    console.log(contact);
     dispatch({ type: 'select_contact', payload: contact });
   }
 

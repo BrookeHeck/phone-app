@@ -30,7 +30,7 @@ const GameBoard = () => {
   const startInterval = () => {
     let timer = 56;
     const id = setInterval(() => {
-      if(timer <= 45) {
+      if(timer <= 0) {
         clearInterval(id);
         dispatch({type: 'end_game'});
       }
