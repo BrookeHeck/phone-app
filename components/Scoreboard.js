@@ -1,5 +1,6 @@
 import { View, Text, Button } from "react-native";
 import { useSelector } from "react-redux";
+import SearchContacts from "./SearchContacts";
 
 const Scoreboard = () => {
   const score = useSelector(state => state.coordinates.score);
@@ -11,6 +12,7 @@ const Scoreboard = () => {
         <Button
           title='Send Your Score'
         />
+        <SearchContacts />
       </View>
     </>
   )

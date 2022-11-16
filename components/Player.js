@@ -23,8 +23,6 @@ export default function Player() {
 
   return (
     <View>
-      {/* <Text>{playerCoords.x}</Text>
-      <Text>{playerCoords.y}</Text> */}
       <View style={{
         height: 30,
         width: 30,

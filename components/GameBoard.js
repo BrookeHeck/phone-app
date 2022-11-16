@@ -30,7 +30,7 @@ const GameBoard = () => {
   const startInterval = () => {
     let timer = 56;
     const id = setInterval(() => {
-      if(timer <= 0) {
+      if(timer <= 45) {
         clearInterval(id);
         dispatch({type: 'end_game'});
       }
@@ -51,10 +51,9 @@ const GameBoard = () => {
   return (
     <SafeAreaView>
       <ContactsPrompt />
-
-      <When condition={gameComplete} ><Scoreboard /></When>
       
       <When condition={!gameInProgress}><HomeScreen /></When>
+      <When condition={gameComplete} ><Scoreboard /></When>
 
       <When condition={gameInProgress}>
         <View><Text>Score: {score} targets</Text></View>
